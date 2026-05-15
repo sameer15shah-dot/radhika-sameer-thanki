@@ -1,5 +1,6 @@
 <!DOCTYPE html>
- <html lang="en">
+
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -149,6 +150,18 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
   border:1px solid rgba(255,220,228,.18);
 }
 
+
+/* RSVP required-field and thank-you redirect refinement */
+#phone:required, #attendance:required{
+  border-color:rgba(182,79,101,.22);
+}
+.success-note{
+  background:linear-gradient(135deg,rgba(255,219,229,.18),rgba(247,231,189,.12)) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,220,228,.22) !important;
+  font-weight:900 !important;
+}
+
 </style>
 <script> if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.addEventListener('load', () => window.scrollTo(0, 0)); window.addEventListener('pageshow', () => window.scrollTo(0, 0)); </script>
 </head>
@@ -272,10 +285,6 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 </aside>
 <div class="form-card">
 <form action="https://docs.google.com/forms/d/e/1FAIpQLSdKZyaLzcXbt9aTD9nxE-DfEPU_ej4bxrLBHP5dpE5qGVfpGA/formResponse" id="rsvpForm" method="POST" target="googleFormHiddenFrame">
-
-
-
-
 <div class="field">
 <label for="fullName">Full Name *</label>
 <input id="fullName" name="entry.428846017" placeholder="Enter your full name" required="" type="text"/>
@@ -289,13 +298,13 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 </select>
 </div>
 <div class="field">
-<label for="phone">Mobile / WhatsApp</label>
-<input id="phone" name="entry.451219162" placeholder="Optional" type="tel"/>
+<label for="phone">Mobile / WhatsApp *</label>
+<input id="phone" name="entry.451219162" placeholder="Enter mobile / WhatsApp number" required="" type="tel"/>
 </div>
 </div>
 <div class="field">
-<label for="attendance">Will you attend?</label>
-<select id="attendance" name="entry.297934078">
+<label for="attendance">Will you attend? *</label>
+<select id="attendance" name="entry.297934078" required="">
 <option>Yes, with blessings</option>
 <option>Not sure yet</option>
 <option>Unable to attend</option>
@@ -310,7 +319,7 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 <button class="primary-btn" type="submit">Send RSVP</button>
 <span class="fineprint">Your RSVP will be saved automatically in the family response sheet.</span>
 </div>
-<div class="success-note" id="successNote">Thank you — your RSVP has been submitted.</div>
+<div class="success-note" id="successNote">Thank you — your RSVP has been submitted. Redirecting...</div>
 </form><iframe id="googleFormHiddenFrame" name="googleFormHiddenFrame" style="display:none;"></iframe>
 </div>
 </div>
@@ -338,13 +347,11 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
       form.addEventListener('submit', () => {
         if (successNote) {
           successNote.style.display = 'block';
-          successNote.textContent = 'Thank you — your RSVP has been submitted.';
+          successNote.textContent = 'Thank you — your RSVP has been submitted. Redirecting...';
         }
         window.setTimeout(() => {
-          form.reset();
-          const preview = document.getElementById('guestPreview');
-          if (preview) preview.textContent = 'Select guest count and we’ll reserve your place in the celebration.';
-        }, 900);
+          window.location.href = 'thankyou.html';
+        }, 1200);
       });
     }
 
