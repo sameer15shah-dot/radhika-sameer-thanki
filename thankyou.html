@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You | Radhika & Sameer</title>
+<style>
+  :root{
+    --navy:#0A1F44;
+    --rose:#B64F65;
+    --rose-deep:#7A3451;
+    --blush:#FFF1F4;
+    --champagne:#F7E7BD;
+    --gold:#D2A84B;
+    --ivory:#FFF9EF;
+    --muted:#725E66;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    font-family:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:
+      radial-gradient(circle at 18% 10%, rgba(255,221,229,.55), transparent 28%),
+      radial-gradient(circle at 85% 18%, rgba(247,231,189,.46), transparent 24%),
+      radial-gradient(circle at 50% 95%, rgba(182,79,101,.15), transparent 30%),
+      linear-gradient(135deg,#fffaf4 0%,#fff1f4 45%,#fff8ea 100%);
+    color:var(--navy);
+    padding:28px;
+    overflow:hidden;
+  }
+
+  .petal{
+    position:fixed;
+    width:22px;
+    height:12px;
+    background:rgba(182,79,101,.20);
+    border-radius:999px 999px 999px 0;
+    transform:rotate(28deg);
+    filter:blur(.1px);
+    animation:float 9s linear infinite;
+    pointer-events:none;
+  }
+  .petal:nth-child(1){left:8%; top:16%; animation-delay:-1s}
+  .petal:nth-child(2){left:78%; top:12%; animation-delay:-4s}
+  .petal:nth-child(3){left:88%; top:68%; animation-delay:-2s}
+  .petal:nth-child(4){left:18%; top:76%; animation-delay:-6s}
+  .petal:nth-child(5){left:56%; top:8%; animation-delay:-7s}
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(28deg)}
+    50%{transform:translateY(18px) rotate(42deg)}
+  }
+
+  .card{
+    width:min(720px,100%);
+    position:relative;
+    background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(255,244,247,.82));
+    border:1px solid rgba(182,79,101,.20);
+    border-radius:36px;
+    padding:46px 30px 42px;
+    text-align:center;
+    box-shadow:
+      0 28px 90px rgba(122,52,81,.16),
+      inset 0 1px 0 rgba(255,255,255,.86);
+    overflow:hidden;
+  }
+
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border-radius:28px;
+    border:1px solid rgba(210,168,75,.18);
+    pointer-events:none;
+  }
+
+  .card::after{
+    content:"";
+    position:absolute;
+    top:-90px;
+    right:-90px;
+    width:210px;
+    height:210px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(247,231,189,.55),rgba(182,79,101,.10),transparent 68%);
+    pointer-events:none;
+  }
+
+  .eyebrow{
+    position:relative;
+    z-index:1;
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    border:1px solid rgba(182,79,101,.22);
+    border-radius:999px;
+    padding:10px 16px;
+    background:linear-gradient(135deg,#fff,#fff1f4);
+    color:#7A3451;
+    font-weight:900;
+    letter-spacing:.10em;
+    text-transform:uppercase;
+    font-size:.76rem;
+    box-shadow:0 12px 30px rgba(182,79,101,.10);
+  }
+
+  .dot{
+    width:10px;
+    height:10px;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--gold),var(--rose));
+    box-shadow:0 0 0 8px rgba(182,79,101,.10);
+  }
+
+  h1{
+    position:relative;
+    z-index:1;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:clamp(2.8rem,8vw,5.2rem);
+    line-height:.95;
+    margin:30px 0 16px;
+    letter-spacing:-.045em;
+    font-weight:400;
+    color:var(--navy);
+  }
+
+  h1 span{
+    color:var(--gold);
+  }
+
+  p{
+    position:relative;
+    z-index:1;
+    font-size:1.08rem;
+    line-height:1.75;
+    color:var(--muted);
+    margin:0 auto 18px;
+    max-width:560px;
+  }
+
+  .guj{
+    font-family:Georgia, "Times New Roman", serif;
+    color:#7A6030;
+    font-size:1.14rem;
+  }
+
+  .names{
+    position:relative;
+    z-index:1;
+    margin-top:22px;
+    font-family:Georgia, "Times New Roman", serif;
+    font-size:1.7rem;
+    color:var(--navy);
+  }
+
+  .heart{
+    color:#C04455;
+    text-shadow:0 0 16px rgba(192,68,85,.18);
+  }
+
+  a{
+    position:relative;
+    z-index:1;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:18px;
+    text-decoration:none;
+    background:linear-gradient(135deg,#ffdbe5,#f4b8c7 46%,#d46b89 100%);
+    color:#5a1732;
+    font-weight:900;
+    border-radius:999px;
+    padding:15px 24px;
+    border:1px solid rgba(182,79,101,.24);
+    box-shadow:0 18px 34px rgba(182,79,101,.20);
+  }
+
+  @media (max-width:560px){
+    body{padding:18px}
+    .card{padding:38px 22px 36px; border-radius:30px}
+    .card::before{inset:9px; border-radius:24px}
+  }
+</style>
+</head>
+<body>
+  <i class="petal"></i>
+  <i class="petal"></i>
+  <i class="petal"></i>
+  <i class="petal"></i>
+  <i class="petal"></i>
+
+  <main class="card">
+    <div class="eyebrow"><span class="dot"></span> RSVP Received</div>
+    <h1>Thank <span>You</span></h1>
+    <p>Your RSVP has been received with love. We look forward to celebrating this special evening with you.</p>
+    <p class="guj">તમારા જવાબ માટે ખૂબ ખૂબ આભાર. આપની હાજરીની આતુરતાથી રાહ જોઇશું.</p>
+    <div class="names">Radhika <span class="heart">♥</span> Sameer</div>
+    <a href="index.html">Back to Invitation</a>
+  </main>
+</body>
+</html>
