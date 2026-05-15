@@ -1,4 +1,5 @@
-<!DOCTYPE html> <html lang="en">
+<!DOCTYPE html>
+ <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -135,6 +136,19 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
   .calendar-after-reveal{width:100%; min-width:0}
 }
 
+
+.rsvp-sheet-note{
+  margin-top:10px !important;
+  color:#f7e7bd !important;
+  font-weight:800;
+  font-size:.95rem !important;
+}
+.success-note{
+  background:rgba(255,241,244,.12) !important;
+  color:#fff !important;
+  border:1px solid rgba(255,220,228,.18);
+}
+
 </style>
 <script> if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.addEventListener('load', () => window.scrollTo(0, 0)); window.addEventListener('pageshow', () => window.scrollTo(0, 0)); </script>
 </head>
@@ -253,35 +267,35 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 <div class="eyebrow">Most important</div>
 <h2>Please confirm your presence</h2>
 <p>Your RSVP will help us plan the evening with the right seating, food and guest arrangements. It takes less than 30 seconds.</p>
-<p class="guj">તમારી હાજરીની પુષ્ટિ અમને વ્યવસ્થા સારી રીતે કરવાની મદદ કરશે.</p>
+<p class="guj">તમારી હાજરીની પુષ્ટિ અમને વ્યવસ્થા સારી રીતે કરવાની મદદ કરશે.</p><p class="rsvp-sheet-note">Responses are saved automatically for RSVP planning.</p>
 <div class="mini-details"><div class="mini-detail"><span>✅</span><div><b>Quick RSVP</b><span>Please confirm attendance and total guests.</span></div></div><div class="mini-detail"><span>👨‍👩‍👧‍👦</span><div><b>Include everyone</b><span>Please include yourself in the guest count.</span></div></div><div class="mini-detail"><span>🕯️</span><div><b>Bring your blessings</b><span>That is the real gift we are waiting for.</span></div></div></div>
 </aside>
 <div class="form-card">
-<form id="rsvpForm" method="POST">
-<input name="_subject" type="hidden" value="New RSVP: Radhika &amp; Sameer Engagement"/>
-<input id="ccEmail" name="_cc" type="hidden" value=""/><input name="_template" type="hidden" value="table"/>
-<input name="_captcha" type="hidden" value="false"/>
-<input id="nextUrl" name="_next" type="hidden" value=""/>
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSdKZyaLzcXbt9aTD9nxE-DfEPU_ej4bxrLBHP5dpE5qGVfpGA/formResponse" id="rsvpForm" method="POST" target="googleFormHiddenFrame">
+
+
+
+
 <div class="field">
 <label for="fullName">Full Name *</label>
-<input id="fullName" name="Full Name" placeholder="Enter your full name" required="" type="text"/>
+<input id="fullName" name="entry.428846017" placeholder="Enter your full name" required="" type="text"/>
 </div>
 <div class="form-row">
 <div class="field">
 <label for="guests">Number of people *</label>
-<select id="guests" name="Number of People" required="">
+<select id="guests" name="entry.1949276410" required="">
 <option disabled="" selected="" value="">Select</option>
 <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10+</option>
 </select>
 </div>
 <div class="field">
 <label for="phone">Mobile / WhatsApp</label>
-<input id="phone" name="Mobile / WhatsApp" placeholder="Optional" type="tel"/>
+<input id="phone" name="entry.451219162" placeholder="Optional" type="tel"/>
 </div>
 </div>
 <div class="field">
 <label for="attendance">Will you attend?</label>
-<select id="attendance" name="Attendance Status">
+<select id="attendance" name="entry.297934078">
 <option>Yes, with blessings</option>
 <option>Not sure yet</option>
 <option>Unable to attend</option>
@@ -289,15 +303,15 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 </div>
 <div class="field">
 <label for="message">Message for Radhika &amp; Sameer</label>
-<textarea id="message" name="Message" placeholder="Optional blessing or note"></textarea>
+<textarea id="message" name="entry.5308278" placeholder="Optional blessing or note"></textarea>
 </div>
 <div class="guest-preview" id="guestPreview">Select guest count and we’ll reserve your place in the celebration.</div>
 <div class="submit-row">
 <button class="primary-btn" type="submit">Send RSVP</button>
-<span class="fineprint">Your RSVP helps us plan seating, dinner and guest arrangements with care.</span>
+<span class="fineprint">Your RSVP will be saved automatically in the family response sheet.</span>
 </div>
-<div class="success-note" id="successNote">Preparing your RSVP…</div>
-</form>
+<div class="success-note" id="successNote">Thank you — your RSVP has been submitted.</div>
+</form><iframe id="googleFormHiddenFrame" name="googleFormHiddenFrame" style="display:none;"></iframe>
 </div>
 </div>
 </section>
@@ -318,6 +332,22 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 <div>Engagement • 16 July 2026 • Ahmedabad</div>
 <div class="guj">આપની હાજરીની આતુરતાથી રાહ જોઇશું.</div>
 </footer>
-<script> const reveal = document.getElementById('revealScreen'); const openInvite = document.getElementById('openInvite'); if (openInvite && reveal) { openInvite.addEventListener('click', () => { reveal.classList.add('hide'); window.setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }), 80); }); } const revealDateBtn = document.getElementById('revealDateBtn'); const dateRow = document.getElementById('dateRow'); const dateRevealCard = document.getElementById('dateRevealCard'); const dateCelebration = document.getElementById('dateCelebration'); const addCalendarAfterReveal = document.getElementById('addCalendarAfterReveal'); const celebrationLayer = document.getElementById('celebrationLayer'); const revealedDateBadge = document.getElementById('revealedDateBadge'); const detailsDateIcon = document.getElementById('detailsDateIcon'); const detailsDateHeading = document.getElementById('detailsDateHeading'); const detailsDateCopy = document.getElementById('detailsDateCopy'); const detailsDateCopyGuj = document.getElementById('detailsDateCopyGuj'); function createSparkles(target){ if (!target) return; for (let i=0; i<22; i++){ const s = document.createElement('i'); s.className = 'sparkle'; const angle = (Math.PI * 2 * i) / 22; const distance = 65 + Math.random() * 110; s.style.setProperty('--x', Math.cos(angle) * distance + 'px'); s.style.setProperty('--y', Math.sin(angle) * distance + 'px'); target.appendChild(s); window.setTimeout(() => s.remove(), 950); } } function createFlash(){ const flash = document.createElement('div'); flash.className = 'celebration-flash'; document.body.appendChild(flash); window.setTimeout(() => flash.remove(), 900); } function createConfetti(){ const colors = ['#C99A3B','#F2D18B','#0A1F44','#E8B1BC','#C55B6F','#ffffff']; const shapes = ['circle','ribbon','square','']; const total = 110; for (let i=0; i<total; i++){ const c = document.createElement('i'); c.className = 'confetti-piece ' + shapes[Math.floor(Math.random() * shapes.length)]; c.style.background = colors[Math.floor(Math.random() * colors.length)]; c.style.left = (15 + Math.random() * 70) + '%'; c.style.top = (10 + Math.random() * 18) + '%'; const x = (Math.random() * 900) - 450; const y = 180 + Math.random() * 700; const r = (Math.random() * 1080) - 540; c.style.setProperty('--x', x + 'px'); c.style.setProperty('--y', y + 'px'); c.style.setProperty('--r', r + 'deg'); c.style.animationDelay = (Math.random() * 220) + 'ms'; (celebrationLayer || document.body).appendChild(c); window.setTimeout(() => c.remove(), 2200); } } function createFirework(left, top, palette){ const burst = document.createElement('div'); burst.className = 'firework-burst'; burst.style.setProperty('--left', left); burst.style.setProperty('--top', top); const core = document.createElement('i'); core.className = 'firework-core'; burst.appendChild(core); const count = 18; for (let i=0; i<count; i++){ const p = document.createElement('i'); p.className = 'firework-particle'; const angle = (Math.PI * 2 * i) / count; const dist = 45 + Math.random() * 65; p.style.setProperty('--x', (Math.cos(angle) * dist) + 'px'); p.style.setProperty('--y', (Math.sin(angle) * dist) + 'px'); p.style.setProperty('--color', palette[i % palette.length]); burst.appendChild(p); } (celebrationLayer || document.body).appendChild(burst); window.setTimeout(() => burst.remove(), 1300); } function launchFireworks(){ const palettes = [ ['#F2D18B','#ffffff','#C99A3B'], ['#E8B1BC','#ffffff','#C55B6F'], ['#AFC8FF','#ffffff','#0A1F44'] ]; createFirework('32%','28%',palettes[0]); window.setTimeout(() => createFirework('50%','20%',palettes[1]), 180); window.setTimeout(() => createFirework('68%','30%',palettes[2]), 320); window.setTimeout(() => createFirework('42%','26%',palettes[0]), 520); window.setTimeout(() => createFirework('58%','24%',palettes[1]), 680); } if (revealDateBtn && dateRow) { revealDateBtn.addEventListener('click', () => { dateRow.classList.remove('is-hidden'); dateRow.classList.add('revealed'); revealDateBtn.textContent = 'Date Revealed • 16 July 2026'; revealDateBtn.setAttribute('aria-expanded','true'); revealDateBtn.classList.remove('pulse'); if (dateRevealCard) { dateRevealCard.classList.add('date-open'); createSparkles(dateRevealCard); } if (dateCelebration) { dateCelebration.classList.remove('is-hidden'); } if (revealedDateBadge) { revealedDateBadge.classList.remove('is-hidden'); } if (addCalendarAfterReveal) { addCalendarAfterReveal.classList.remove('is-hidden'); } if (detailsDateHeading) detailsDateHeading.textContent = '16 July 2026'; if (detailsDateIcon) detailsDateIcon.classList.remove('is-hidden'); if (detailsDateCopy) detailsDateCopy.textContent = 'Please keep the evening reserved for this special celebration.'; if (detailsDateCopyGuj) detailsDateCopyGuj.textContent = 'કૃપા કરીને સાંજનો સમય અમારે માટે રાખશો.'; createFlash(); createConfetti(); launchFireworks(); }, { once: true }); } const guests = document.getElementById('guests'); const preview = document.getElementById('guestPreview'); if (guests && preview) { guests.addEventListener('change', () => { const count = guests.value; preview.textContent = count === '1' ? 'Beautiful — we will reserve 1 place for you.' : `Beautiful — we will reserve ${count} places for you and your family.`; }); } const form = document.getElementById('rsvpForm'); const successNote = document.getElementById('successNote'); if (form) { form.addEventListener('submit', () => { const user = 'radhithanki'; const domain = 'gmail'; const tld = 'com'; const ccUser = 'thankihemant'; const ccField = document.getElementById('ccEmail'); form.action = 'https://formsubmit.co/' + user + '@' + domain + '.' + tld; if (ccField) ccField.value = ccUser + '@' + domain + '.' + tld; const current = window.location.href.split('#')[0]; document.getElementById('nextUrl').value = current.replace('index.html','') + 'thankyou.html'; if (successNote) successNote.style.display = 'block'; }); } </script>
+<script> const reveal = document.getElementById('revealScreen'); const openInvite = document.getElementById('openInvite'); if (openInvite && reveal) { openInvite.addEventListener('click', () => { reveal.classList.add('hide'); window.setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }), 80); }); } const revealDateBtn = document.getElementById('revealDateBtn'); const dateRow = document.getElementById('dateRow'); const dateRevealCard = document.getElementById('dateRevealCard'); const dateCelebration = document.getElementById('dateCelebration'); const addCalendarAfterReveal = document.getElementById('addCalendarAfterReveal'); const celebrationLayer = document.getElementById('celebrationLayer'); const revealedDateBadge = document.getElementById('revealedDateBadge'); const detailsDateIcon = document.getElementById('detailsDateIcon'); const detailsDateHeading = document.getElementById('detailsDateHeading'); const detailsDateCopy = document.getElementById('detailsDateCopy'); const detailsDateCopyGuj = document.getElementById('detailsDateCopyGuj'); function createSparkles(target){ if (!target) return; for (let i=0; i<22; i++){ const s = document.createElement('i'); s.className = 'sparkle'; const angle = (Math.PI * 2 * i) / 22; const distance = 65 + Math.random() * 110; s.style.setProperty('--x', Math.cos(angle) * distance + 'px'); s.style.setProperty('--y', Math.sin(angle) * distance + 'px'); target.appendChild(s); window.setTimeout(() => s.remove(), 950); } } function createFlash(){ const flash = document.createElement('div'); flash.className = 'celebration-flash'; document.body.appendChild(flash); window.setTimeout(() => flash.remove(), 900); } function createConfetti(){ const colors = ['#C99A3B','#F2D18B','#0A1F44','#E8B1BC','#C55B6F','#ffffff']; const shapes = ['circle','ribbon','square','']; const total = 110; for (let i=0; i<total; i++){ const c = document.createElement('i'); c.className = 'confetti-piece ' + shapes[Math.floor(Math.random() * shapes.length)]; c.style.background = colors[Math.floor(Math.random() * colors.length)]; c.style.left = (15 + Math.random() * 70) + '%'; c.style.top = (10 + Math.random() * 18) + '%'; const x = (Math.random() * 900) - 450; const y = 180 + Math.random() * 700; const r = (Math.random() * 1080) - 540; c.style.setProperty('--x', x + 'px'); c.style.setProperty('--y', y + 'px'); c.style.setProperty('--r', r + 'deg'); c.style.animationDelay = (Math.random() * 220) + 'ms'; (celebrationLayer || document.body).appendChild(c); window.setTimeout(() => c.remove(), 2200); } } function createFirework(left, top, palette){ const burst = document.createElement('div'); burst.className = 'firework-burst'; burst.style.setProperty('--left', left); burst.style.setProperty('--top', top); const core = document.createElement('i'); core.className = 'firework-core'; burst.appendChild(core); const count = 18; for (let i=0; i<count; i++){ const p = document.createElement('i'); p.className = 'firework-particle'; const angle = (Math.PI * 2 * i) / count; const dist = 45 + Math.random() * 65; p.style.setProperty('--x', (Math.cos(angle) * dist) + 'px'); p.style.setProperty('--y', (Math.sin(angle) * dist) + 'px'); p.style.setProperty('--color', palette[i % palette.length]); burst.appendChild(p); } (celebrationLayer || document.body).appendChild(burst); window.setTimeout(() => burst.remove(), 1300); } function launchFireworks(){ const palettes = [ ['#F2D18B','#ffffff','#C99A3B'], ['#E8B1BC','#ffffff','#C55B6F'], ['#AFC8FF','#ffffff','#0A1F44'] ]; createFirework('32%','28%',palettes[0]); window.setTimeout(() => createFirework('50%','20%',palettes[1]), 180); window.setTimeout(() => createFirework('68%','30%',palettes[2]), 320); window.setTimeout(() => createFirework('42%','26%',palettes[0]), 520); window.setTimeout(() => createFirework('58%','24%',palettes[1]), 680); } if (revealDateBtn && dateRow) { revealDateBtn.addEventListener('click', () => { dateRow.classList.remove('is-hidden'); dateRow.classList.add('revealed'); revealDateBtn.textContent = 'Date Revealed • 16 July 2026'; revealDateBtn.setAttribute('aria-expanded','true'); revealDateBtn.classList.remove('pulse'); if (dateRevealCard) { dateRevealCard.classList.add('date-open'); createSparkles(dateRevealCard); } if (dateCelebration) { dateCelebration.classList.remove('is-hidden'); } if (revealedDateBadge) { revealedDateBadge.classList.remove('is-hidden'); } if (addCalendarAfterReveal) { addCalendarAfterReveal.classList.remove('is-hidden'); } if (detailsDateHeading) detailsDateHeading.textContent = '16 July 2026'; if (detailsDateIcon) detailsDateIcon.classList.remove('is-hidden'); if (detailsDateCopy) detailsDateCopy.textContent = 'Please keep the evening reserved for this special celebration.'; if (detailsDateCopyGuj) detailsDateCopyGuj.textContent = 'કૃપા કરીને સાંજનો સમય અમારે માટે રાખશો.'; createFlash(); createConfetti(); launchFireworks(); }, { once: true }); } const guests = document.getElementById('guests'); const preview = document.getElementById('guestPreview'); if (guests && preview) { guests.addEventListener('change', () => { const count = guests.value; preview.textContent = count === '1' ? 'Beautiful — we will reserve 1 place for you.' : `Beautiful — we will reserve ${count} places for you and your family.`; }); } const form = document.getElementById('rsvpForm');
+    const successNote = document.getElementById('successNote');
+    if (form) {
+      form.addEventListener('submit', () => {
+        if (successNote) {
+          successNote.style.display = 'block';
+          successNote.textContent = 'Thank you — your RSVP has been submitted.';
+        }
+        window.setTimeout(() => {
+          form.reset();
+          const preview = document.getElementById('guestPreview');
+          if (preview) preview.textContent = 'Select guest count and we’ll reserve your place in the celebration.';
+        }, 900);
+      });
+    }
+
+  </script>
 </body>
 </html>
