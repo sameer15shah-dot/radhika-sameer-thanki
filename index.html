@@ -353,6 +353,62 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 }
 .story-media-content{position:relative !important; z-index:2 !important}
 
+
+/* v21: sticky navbar music control */
+.music-toggle{display:none !important}
+.nav-music-toggle{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-top:2px;
+  padding:9px 14px;
+  border-radius:999px;
+  border:1px solid rgba(182,79,101,.22);
+  background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(255,242,245,.94));
+  color:#6f314f;
+  font-weight:900;
+  font-size:.82rem;
+  letter-spacing:.01em;
+  box-shadow:0 10px 22px rgba(87,33,65,.10),0 6px 14px rgba(201,154,59,.08);
+  cursor:pointer;
+}
+.nav-music-toggle .music-icon{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#fff1c8,#d5aa4d);
+  color:#4a1736;
+  font-size:.9rem;
+}
+.nav-music-toggle .music-label-off{display:none}
+.nav-music-toggle:not(.is-playing) .music-label-on{display:none}
+.nav-music-toggle:not(.is-playing) .music-label-off{display:inline}
+.nav-music-toggle.is-playing{
+  border-color:rgba(182,79,101,.30);
+  background:linear-gradient(135deg,#ffdbe5,#f4b8c7 48%,#d46b89);
+  color:#5a1732;
+}
+@media (max-width:740px){
+  .nav-music-toggle{
+    padding:8px 12px;
+    font-size:.76rem;
+  }
+  .nav-music-toggle .music-icon{
+    width:20px;
+    height:20px;
+  }
+}
+
+
+/* v22: music starts on opening tap; pause control appears in sticky header */
+.nav-music-toggle.is-hidden{display:none !important}
+.nav-music-toggle.is-playing .music-label-on{display:inline}
+.nav-music-toggle.is-playing .music-label-off{display:none}
+
 </style>
 <script> if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.addEventListener('load', () => window.scrollTo(0, 0)); window.addEventListener('pageshow', () => window.scrollTo(0, 0)); </script>
 </head>
@@ -368,7 +424,7 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 <div class="eyebrow">You are invited</div>
 <h1>Radhika <span class="amp">&amp;</span><br/>Sameer</h1>
 <p class="guj">રાધિકા અને સમીરના ગોળ ધાણા અને સગાઈ પ્રસંગે આપનું હાર્દિક આમંત્રણ.</p>
-<button class="open-btn" id="openInvite" type="button">Open the Invitation <span>↘</span></button>
+<button class="open-btn" id="openInvite" type="button">Open Invitation <span>↘</span></button>
 </div>
 </div>
 <nav class="nav">
@@ -376,6 +432,12 @@ body{ background: radial-gradient(circle at 12% 10%, rgba(255,219,227,.32), tran
 <div class="brand-wrap">
 <div class="brand">Radhika <span>&amp;</span> Sameer</div>
 <div class="nav-note">Engagement Invitation</div>
+
+<button aria-label="Play or pause background music" class="nav-music-toggle is-hidden" id="musicToggle" type="button">
+  <span class="music-icon">♪</span>
+  <span class="music-label-on">Pause Music</span>
+  <span class="music-label-off">Play Music</span>
+</button>
 </div>
 </div>
 </nav>
@@ -552,6 +614,7 @@ function syncMusicToggle(){
 }
 function playThemeMusic(){
   if(!bgMusic) return Promise.resolve(false);
+  if(musicToggle) musicToggle.classList.remove('is-hidden');
   bgMusic.muted = false;
   const playPromise = bgMusic.play();
   if(playPromise && typeof playPromise.then === 'function'){
@@ -571,6 +634,7 @@ function pauseThemeMusic(markUser=true){
   if(!bgMusic) return;
   bgMusic.pause();
   if(markUser) musicUserPaused = true;
+  if(musicToggle) musicToggle.classList.remove('is-hidden');
   syncMusicToggle();
 }
 if(musicToggle && bgMusic){
